@@ -8,6 +8,7 @@ from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/', include('accounts.urls')),
     path('', lambda req: render(req, 'base.html')),
 
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
