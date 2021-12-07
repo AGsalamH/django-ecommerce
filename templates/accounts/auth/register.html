@@ -74,14 +74,14 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                {% if form.password.errors %}
-                                                    {% for error in form.password.errors %}
+                                                {% if form.password1.errors %}
+                                                    {% for error in form.password1.errors %}
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ error }}
                                                         </div>
                                                     {% endfor %}
                                                 {% endif %}
-                                                <input type="password" id="form3Example4c" name="password" class="form-control" value="{{form.data.password}}" />
+                                                <input type="password" id="form3Example4c" name="password1" class="form-control" value="{{form.data.password1}}" />
                                                 <label class="form-label" for="form3Example4c">Password</label>
                                             </div>
                                         </div>
@@ -89,14 +89,14 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                {% if form.confirm_password.errors %}
-                                                    {% for error in form.confirm_password.errors %}
+                                                {% if form.password2.errors %}
+                                                    {% for error in form.password2.errors %}
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ error }}
                                                         </div>
                                                     {% endfor %}
                                                 {% endif %}
-                                                <input type="password" id="form3Example4cd" name="confirm_password" class="form-control" value="{{form.data.confirm_password}}" />
+                                                <input type="password" id="form3Example4cd" name="password2" class="form-control" value="{{form.data.password2}}" />
                                                 <label class="form-label" for="form3Example4cd">Confirm your password</label>
                                             </div>
                                         </div>
