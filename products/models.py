@@ -5,6 +5,19 @@ from django.urls import reverse
 
 # Create your models here.
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+        db_table = 'categories'
+
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
@@ -12,7 +25,7 @@ class Product(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     slug = models.SlugField() 
     image = models.ImageField(upload_to='products/', blank=True, null=True)
-
+    category = models.ForeignKey('products.Category', on_delete=models.CASCADE, related_name='products', null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
