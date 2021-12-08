@@ -18,8 +18,12 @@
             name="name"
             type="text"
             class="form-control validate"
+            value="{% if form.name.value %}{{ form.name.value }}{% endif %}"
             required
             />
+            {% for error in form.name.errors %}
+            <p class="alert alert-danger"> {{ error }} </p>
+            {% endfor %}
         </div>
         <div class="form-group mb-3">
             <label
@@ -30,18 +34,41 @@
             class="form-control validate"
             name="description"
             rows="3"
-            ></textarea>
+            >{% if form.description.value %} {{form.description.value}} {% endif %}</textarea>
+            {% for error in form.description.errors %}
+            <p class="alert alert-danger"> {{ error }} </p>
+            {% endfor %}
         </div>
-    
     
         <div class="form-group">
             <label for="exampleFormControlFile1">Product Price</label>
-            <input type="text" class="form-control" name="price" id="exampleFormControlFile1">
+            <input type="text" class="form-control" name="price" value="{% if form.price.value %}{{ form.price.value }}{% endif %}" id="exampleFormControlFile1">
+            {% for error in form.price.errors %}
+            <p class="alert alert-danger" > {{ error }} </p>
+            {% endfor %}
         </div>
 
         <div class="form-group">
+
+            <label for="category">Category</label>
+            <select id="category" class="form-control" name="category">
+              <option selected>Choose...</option>
+              {% for category in categories %}
+                <option value="{{ category.pk }}"> {{ category.name }} </option>
+              {% endfor %}
+            </select>
+            {% for error in form.category.errors %}
+            <p class="alert alert-danger"> {{ error }} </p>
+            {% endfor %}
+        </div>      
+
+        <div class="form-group">
+
             <label for="exampleFormControlFile1">UPLOAD PRODUCT IMAGE</label>
             <input type="file" class="form-control" name="image" id="exampleFormControlFile1">
+            {% for error in form.image.errors %}
+            <p class="alert alert-danger"> {{ error }} </p>
+            {% endfor %}
         </div>
     
         <div class="mt-2 col-12">
