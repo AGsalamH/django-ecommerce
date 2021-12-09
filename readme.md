@@ -9,8 +9,9 @@
     - FIX Create Form [DONE]
     
     - FIX UNIQUE SLUGS [DONE]
-    - Index page with most recent products [TODO]
-
+- shop app
+    - Index page with most recent products [DONE]
+    - Filter by category [TODO]
 - Carts app
     - session based
 
