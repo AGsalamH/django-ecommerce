@@ -11,7 +11,7 @@
     - FIX UNIQUE SLUGS [DONE]
 - shop app
     - Index page with most recent products [DONE]
-    - Filter by category [TODO]
+    - Filter by category [DONE] but still need a form in our templates [DONE]
 - Carts app
     - session based
 

@@ -6,7 +6,7 @@ from core.utils import unique_slug_generator
 
 from accounts.mixins import StaffRequiredMixin
 
-from .models import Product
+from .models import Product, Category
 from .forms import ProductModelForm
 
 
@@ -14,8 +14,14 @@ from .forms import ProductModelForm
 
 class ProductListView(ListView):
     template_name = 'products/product_list.html'
-    queryset = Product.objects.all()
     context_object_name = 'products'
+
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        category = self.request.GET.get('category')
+        if category and Category.objects.filter(name=category).exists():
+            return queryset.filter(category__name=category)
+        return queryset
 
 
 class ProductDetailView(DetailView):
