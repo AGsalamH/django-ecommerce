@@ -14,6 +14,8 @@
     - Filter by category [DONE] but still need a form in our templates [DONE]
 - Carts app
     - session based
+    - start working on carts app [TODO]
+    - recap sessions from the official docs [TODO]
 
 - orders
 - payment
